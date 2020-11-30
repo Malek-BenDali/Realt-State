@@ -23,9 +23,10 @@
         }
 
         &__input {
+            border-radius: 1;
             font-size: 1.6rem;
             padding: 1rem 1.5rem;
-            outline-color: $color-primary;
+            outline-color: $color-secondary;
         }
 
         &__button {
@@ -46,6 +47,7 @@
             &:hover {
                 color: $color-white;
                 background-color: $color-primary;
+                
             }
         }
     }
@@ -54,9 +56,9 @@
         font-size: 1.6rem;
         color: $color-paragraph;
 
-        &link{
+        &__link{
             text-decoration: none;
-            color : $color-primary;
+            color : $color-secondary;
 
             
         }

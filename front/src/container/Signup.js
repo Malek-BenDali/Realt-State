@@ -80,7 +80,7 @@ function Signup({setAlert, SignUp, isAuthenticated }) {
                 <div className='auth__form__group' >
                     <input 
                     className='auth__form__input' 
-                    type='password2' 
+                    type='password' 
                     placeholder='******' 
                     name='password2'
                     value={password2}
@@ -91,9 +91,9 @@ function Signup({setAlert, SignUp, isAuthenticated }) {
                 <button className='auth__form__button'> m'inscrire </button>
             </form>
             <p className='auth__authtext'>
-                Vous n'avez pas un compte ? 
-                 <Link className='auth__authtext__link' to='/signup'>
-                     Inscripez-vous 
+                Vous avez déja un compte ? 
+                 <Link className='auth__authtext__link' to='/login'>
+                     Connectez-vous
                  </Link> maintenan!
                  
             </p>
