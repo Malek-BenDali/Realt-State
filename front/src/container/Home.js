@@ -43,11 +43,11 @@ function Home() {
                     content='Home Page'
                 />
             </Helmet>
-            <section className='home__form'>
-                <ListingForm setListings={setListings} />
-            </section>
             <section className='home__listings'>
                 <Listings setListings={currentListings} />
+            </section>
+            <section className='home__form'>
+                <ListingForm setListings={setListings} />
             </section>
             <section className='home__pagination'>
                 <div className='row'>

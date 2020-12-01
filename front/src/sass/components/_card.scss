@@ -1,0 +1,74 @@
+.card {
+    padding: 4rem 3rem;
+    background-color: $color-grey-light;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.75);
+    transition: transform 100ms ease-in;
+    cursor: pointer;
+
+    &__header {
+        width: 100%;
+
+        &__photo {
+            object-fit: fill;
+            min-width: 300px;
+            min-height: 200px;
+            width: 100%;
+        }
+    }
+
+    &__title {
+        text-align: center;
+        color: $color-primary;
+        font-size: 2.4rem;
+        margin-bottom: 2rem;
+    }
+
+    &__location {
+        font-size: 1.4rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    &__info {
+        font-size: 1.6rem;
+        color: $color-tertiary;
+        margin-bottom: 0.5rem;
+    }
+
+    &__saletype {
+        font-size: 1.6rem;
+        color: $color-green;
+        margin-bottom: 0.5rem;
+    }
+
+    &__hometype {
+        font-size: 1.6rem;
+        color: $color-tertiary;
+        margin-bottom: 0.5rem;
+    }
+
+    &__sqft {
+        font-size: 1.4rem;
+    }
+
+    &__link {
+        font-size: 1.6rem;
+        color: $color-white;
+        padding: 1rem 1.5rem;
+        border: 0.1rem solid $color-primary;
+        text-decoration: none;
+        background-color: $color-tertiary;
+        border-radius: 999px;
+
+        &:hover {
+            color: $color-white;
+            border: 0.1rem solid $color-primary;
+            background-color: $color-primary
+        }
+    }
+    &:hover {
+        transform: scale(1.07);
+    }
+}

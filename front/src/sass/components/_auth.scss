@@ -13,7 +13,7 @@
 
     &__lead {
         font-size: 2.4rem;
-        color : $color-secondary;
+        color : $color-tertiary;
         margin-bottom: 2rem ;
     }
 
@@ -26,7 +26,7 @@
             border-radius: 1;
             font-size: 1.6rem;
             padding: 1rem 1.5rem;
-            outline-color: $color-secondary;
+            outline-color: $color-tertiary;
         }
 
         &__button {
@@ -35,7 +35,7 @@
             height: 4.5rem;
             width: 100%;
             
-            background-color: $color-secondary;
+            background-color: $color-tertiary;
             color: $color-white;
             border: 0.1rem solid $color-primary;
             border-radius: 999rem ;
@@ -58,7 +58,7 @@
 
         &__link{
             text-decoration: none;
-            color : $color-secondary;
+            color : $color-tertiary;
 
             
         }

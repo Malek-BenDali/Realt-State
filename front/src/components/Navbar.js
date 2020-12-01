@@ -5,9 +5,12 @@ import Alert from './Alert'
 import { logout } from '../actions/auth'
 import PropTypes from 'prop-types';
 
-function Navbar({auth : {isAuthenticated, loading}, logout }) {
+function Navbar({auth : {token, loading}, logout }) {
     const authLinks = (
+        <>
+        <a className='navbar__top__auth__link' onClick={logout} href='#!'>Ajouter un logement</a>
         <a className='navbar__top__auth__link' onClick={logout} href='#!'>logout</a>
+        </>
     );
 
     const guestLinks =(
@@ -25,7 +28,7 @@ function Navbar({auth : {isAuthenticated, loading}, logout }) {
                         <Link className='navbar__top__logo__link' to='/'> Logement </Link>
                     </div>
                     <div className='navbar__top__auth'>
-                        { !loading && (<> {isAuthenticated ? authLinks : guestLinks} </>)}
+                        { !loading && (<> {token ? authLinks : guestLinks} </>)}
                     </div>
                 </div>
                 <div className='navbar__bottom' >

@@ -1,5 +1,5 @@
 .row {
-    max-width : $grid_width;
+    max-width: $grid-width;
     margin: 0 auto;
 
     @include respond(big-desktop) {
@@ -8,15 +8,19 @@
 
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;
-        
+
         @include respond(tab-phone) {
             margin-bottom: $gutter-vertical-small;
         }
     }
 
     @include respond(tab-port) {
+        padding: 0 4rem;
+    }
+
+    @include respond(phone) {
         max-width: 45rem;
-        paddin:0 2rem;
+        padding: 0 2rem;
     }
 
     @include clearfix;
@@ -24,13 +28,13 @@
     [class^="col-"] {
         float: left;
 
-        &:not(:last-child){
+        &:not(:last-child) {
             margin-right: $gutter-horizontal;
-        }
 
-        @include respond(tab-port) {
-            margin-right: 0;
-            margin-bottom: $gutter-vertical-small;
+            @include respond(tab-port) {
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            }
         }
 
         @include respond(tab-port) {
@@ -85,5 +89,4 @@
     .col-5-of-6 {
         width: calc(5 * ((100% - 5 * #{$gutter-horizontal}) / 6) + 4 * #{$gutter-horizontal});
     }
-
 }
