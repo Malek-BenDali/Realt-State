@@ -8,6 +8,7 @@ import Listings from './container/Listings';
 import Login from './container/Login';
 import Signup from './container/Signup';
 import NotFound from './components/Notfount'
+import Addlistings from './container/Addlistings'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './sass/main.scss';
 
@@ -27,6 +28,7 @@ function App() {
             <Route exact path='/listings' component={Listings} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={Signup} />
+            <Route exact path='/ajout' component={Addlistings} />
             <Route component={NotFound} />
           </Switch>
         </Layout>

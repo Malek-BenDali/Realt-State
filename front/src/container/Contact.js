@@ -26,6 +26,7 @@ const Contact = ({ setAlert }) => {
 
     const onSubmit = e => {
         e.preventDefault();
+       
 
         const config = {
             headers: {
@@ -45,12 +46,19 @@ const Contact = ({ setAlert }) => {
             setLoading(false);
             window.scrollTo(0, 0);
         })
+        setFormData({
+            ...formData,
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+        })
     };
 
     return (
         <div className='contact'>
             <Helmet>
-                <title>Realest Estate - Contact</title>
+                <title>Contact</title>
                 <meta
                     name='description'
                     content='Contact us'

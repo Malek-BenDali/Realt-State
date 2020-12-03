@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 function Navbar({auth : {token, loading}, logout }) {
     const authLinks = (
         <>
-        <a className='navbar__top__auth__link' onClick={logout} href='#!'>Ajouter un logement</a>
+        <a className='navbar__top__auth__link' onClick={logout} href='/ajout'>Ajouter un logement</a>
         <a className='navbar__top__auth__link' onClick={logout} href='#!'>logout</a>
         </>
     );
