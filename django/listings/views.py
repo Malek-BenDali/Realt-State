@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, RetrieveDestroyAPIView
 from rest_framework import permissions
 from .models import Listing
-from .serializer import ListingSerializer, ListingDetailSerializer
+from .serializer import ListingSerializer, ListingDetailSerializer, ListingAddDetailSerializer
 from datetime import datetime, timedelta
 from django.utils import timezone
 
@@ -30,7 +30,7 @@ class ListingRetrieveAPIView(RetrieveAPIView):
 class ListingCreateAPIView(CreateAPIView):
     permission_classes = [permissions.AllowAny]
     queryset = Listing.objects.all()
-    serializer_class = ListingDetailSerializer
+    serializer_class = ListingAddDetailSerializer
 
 
 class ListingsRetrieveUpdateDestroyAPIView(RetrieveDestroyAPIView, IsOwnerOrReadOnly):

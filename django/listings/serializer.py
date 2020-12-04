@@ -13,4 +13,9 @@ class ListingDetailSerializer(serializers.ModelSerializer):
         model = Listing
         fields = '__all__'
         lookup_field = 'slug'
+
+class ListingAddDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Listing
+        exclude = ['list_date']
     

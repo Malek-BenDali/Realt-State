@@ -33,7 +33,7 @@ const ListingForm = (props) => {
         };
 
         setLoading(true);
-        axios.post(`${process.env.REACT_APP_API_URL}/api/listings/search`, { sale_type, price, bedrooms, home_type, bathrooms, sqft, days_listed, has_photos, open_house, keywords }, config)
+        axios.post(`http://127.0.0.1:8000/api/listings/search`, { sale_type, price, bedrooms, home_type, bathrooms, sqft, days_listed, has_photos, open_house, keywords }, config)
         .then(res => {
             setLoading(false);
             props.setListings(res.data);
@@ -50,10 +50,10 @@ const ListingForm = (props) => {
             <div className='row'>
                 <div className='col-1-of-6'>
                     <div className='listingform__section'>
-                        <label className='listingform__label' htmlFor='sale_type'>Sale or Rent</label>
+                        <label className='listingform__label' htmlFor='sale_type'>Achetez ou louez</label>
                         <select className='listingform__select' name='sale_type' onChange={e => onChange(e)} value={sale_type}>
-                            <option>For Sale</option>
-                            <option>For Rent</option>
+                            <option>A vendre</option>
+                            <option>A louer</option>
                         </select>
                     </div>
                     <div className='listingform__section'>

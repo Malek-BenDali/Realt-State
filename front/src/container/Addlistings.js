@@ -8,10 +8,7 @@ import PropTypes from 'prop-types';
 
 function Addlistings() {
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
+    const [realtors, setRealtors] = useState([]);
     const [formData, setFormData] = useState({
         slug: "",
         title: "",
@@ -20,7 +17,7 @@ function Addlistings() {
         state: "",
         zipcode: "",
         description: "",
-        sale_type: null,
+        sale_type: "A vendre",
         price: null,
         bedrooms : null,
         bathrooms : null,
@@ -33,11 +30,33 @@ function Addlistings() {
         photo_3 : null,
         photo_4: null,
         is_published : false,
-        realtor : null
+        realtor : 1
     });
 
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        const getRealtors = async () => {
+            try {
+                const res = await axios.get(`http://127.0.0.1:8000/api/realtors/`, config);
+                setRealtors(res.data);
+            }
+            catch (err) {
+
+            }
+        };
+
+        getRealtors();
+    }, []);
+    
+
     const { 
-        slug, 
         title, 
         adress, 
         city, 
@@ -55,17 +74,43 @@ function Addlistings() {
         photo_2 ,
         photo_3 ,
         photo_4,
+        home_type,
         is_published ,
         realtor 
     } = formData;
 
     const [loading, setLoading] = useState(false);
 
-    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });//price / slug
+    const createSlug = str => str = str.replace(/\s+/g, '-');
+
+    const onChange = e => {
+        // if (e.target.name === "price")
+        //     setFormData({ ...formData, [e.target.name]: formatter.format(e.target.value) });
+        //  if (e.target.name === "adress")
+        //     setFormData({ 
+        //         ...formData, 
+        //         [e.target.name]: e.target.value,
+        //         slug : createSlug(e.target.value)
+        //    });
+            if (e.target.name === "realtor"){
+                console.log(e.target.value);
+                const result = realtors.filter( choice => choice.name === e.target.value );
+                console.log(result[0].id)
+            setFormData({ 
+                ...formData, 
+                [e.target.name]: e.target.value,
+            });}
+            if (e.target.name === "is_published"){
+                console.log(e.target.value)
+                setFormData({ ...formData, [e.target.name]: e.target.value });
+            }
+        else
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+        
+    }
 
     const onSubmit = e => {
         e.preventDefault();
-
 
         const config = {
             headers: {
@@ -74,13 +119,33 @@ function Addlistings() {
         };
 
         setLoading(true);
-        axios.post(`http://127.0.0.1:8000/api/contacts/`, {  }, config)
+        axios.post(`http://127.0.0.1:8000/api/listings/create/`, { slug : createSlug(formData.adress) ,title, 
+        adress, 
+        city, 
+        state,
+        zipcode,
+        description,
+        sale_type,
+        price,
+        bedrooms,
+        sqft,
+        bathrooms,
+        open_house,
+        photo_main,
+        photo_1,
+        photo_2 ,
+        photo_3 ,
+        photo_4,
+        home_type,
+        is_published ,
+        realtor }, config)
         .then(res => {
             setAlert('Message Sent', 'success');
             setLoading(false);
             window.scrollTo(0, 0);
         })
         .catch(err => {
+            console.log(err)
             setAlert('Error with Sending Message', 'error');
             setLoading(false);
             window.scrollTo(0, 0);
@@ -205,8 +270,7 @@ function Addlistings() {
                 <input 
                     id="open_house"
                     name='open_house' 
-                    type='checkbox' 
-                    placeholder='Sousse' 
+                    type='checkbox'  
                     onChange={e => onChange(e)} 
                     value={open_house} 
                     required 
@@ -227,7 +291,7 @@ function Addlistings() {
                     type='file' 
                     onChange={e => onChange(e)} 
                     value={photo_1} 
-                    required 
+                     
                 />
                 <label className='contact__form__label' htmlFor='photo_2'>Image</label>
                 <input 
@@ -236,7 +300,7 @@ function Addlistings() {
                     type='file' 
                     onChange={e => onChange(e)} 
                     value={photo_2} 
-                    required 
+                     
                 />
                 <label className='contact__form__label' htmlFor='photo_3'>Image</label>
                 <input 
@@ -245,7 +309,7 @@ function Addlistings() {
                     type='file' 
                     onChange={e => onChange(e)} 
                     value={photo_3} 
-                    required 
+                     
                 />
                 <label className='contact__form__label' htmlFor='photo_4'>Image</label>
                 <input 
@@ -254,7 +318,7 @@ function Addlistings() {
                     type='file' 
                     onChange={e => onChange(e)} 
                     value={photo_4} 
-                    required 
+                     
                 />
                 <label className='contact__form__label' htmlFor='is_published'>Publier*</label>
                 <input 
@@ -266,7 +330,24 @@ function Addlistings() {
                     value={is_published} 
                     required 
                 />
-                "realtor": null
+                <div className='contact__form__label' style={{marginTop : "1rem"}}>
+                    <select className='listingform__select' name='realtor' onChange={e => onChange(e)} value={realtor}>
+                            {realtors.map( choice => (
+                                <>
+                                <option> {choice.name} </option>
+                                </>
+                            ))}
+                    </select>
+                </div>
+                <select className='listingform__select' name='sale_type' onChange={e => onChange(e)} value={sale_type}> Vendez ou Louez
+                        <option>A Vendre</option>
+                        <option>A Louer</option>
+                </select>
+                <select className='listingform__select' name='home_type' onChange={e => onChange(e)} value={home_type}> Type d'immobilier
+                        <option>Maison</option>
+                        <option>Appartement</option>
+                        <option>Villa</option>
+                </select>
                 <label className='contact__form__label' htmlFor='description'>Description</label>
                 <textarea 
                     className='contact__form__textarea'
