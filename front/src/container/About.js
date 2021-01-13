@@ -108,19 +108,19 @@ const About = () => {
     return (
         <main className='about'>
             <Helmet>
-                <title>Realest Estate - About</title>
+                <title>Logement - A propos</title>
                 <meta
                     name='description'
                     content='About us'
                 />
             </Helmet>
             <header className='about__header'>
-                <h1 className='about__heading'>About Realest Estate</h1>
+                <h1 className='about__heading'>A propos notre site</h1>
             </header>
             <section className='about__info'>
                 <div className='row'>
                     <div className='col-3-of-4'>
-                        <h2 className='about__subheading'>We find the perfect home for you</h2>
+                        <h2 className='about__subheading'>On trouve le meilleur logement pour vous</h2>
                         <p className='about__paragraph'>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae sapien a diam eleifend faucibus. 
                             Suspendisse vitae sodales leo. Proin hendrerit aliquam interdum. Maecenas tellus ante, ultrices id 
@@ -147,7 +147,7 @@ const About = () => {
             </section>
             <section className='about__team'>
                 <div className='row'>
-                    <h2 className='about__subheading'>Meet out awesome team!</h2>
+                    <h2 className='about__subheading'>Rencontrez notre équipe !</h2>
                 </div>
                 {getAllRealtors()}
             </section>

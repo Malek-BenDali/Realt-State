@@ -10,7 +10,7 @@ function Addlistings() {
 
     const [realtors, setRealtors] = useState([]);
     const [formData, setFormData] = useState({
-        slug: "",
+        slug : "",
         title: "",
         adress: "",
         city: "",
@@ -84,27 +84,14 @@ function Addlistings() {
     const createSlug = str => str = str.replace(/\s+/g, '-');
 
     const onChange = e => {
-        // if (e.target.name === "price")
-        //     setFormData({ ...formData, [e.target.name]: formatter.format(e.target.value) });
-        //  if (e.target.name === "adress")
-        //     setFormData({ 
-        //         ...formData, 
-        //         [e.target.name]: e.target.value,
-        //         slug : createSlug(e.target.value)
-        //    });
-            if (e.target.name === "realtor"){
-                console.log(e.target.value);
-                const result = realtors.filter( choice => choice.name === e.target.value );
-                console.log(result[0].id)
-            setFormData({ 
-                ...formData, 
-                [e.target.name]: e.target.value,
-            });}
-            if (e.target.name === "is_published"){
-                console.log(e.target.value)
-                setFormData({ ...formData, [e.target.name]: e.target.value });
-            }
-        else
+            // if (e.target.name === "realtor"){
+            //     console.log(e.target.value);
+            //     const result = realtors.filter( choice => choice.name === e.target.value );
+            //     console.log(result[0].id)
+            // setFormData({ 
+            //     ...formData, 
+            //     [e.target.name]: e.target.value,
+            // });}
         setFormData({ ...formData, [e.target.name]: e.target.value });
         
     }
@@ -119,7 +106,7 @@ function Addlistings() {
         };
 
         setLoading(true);
-        axios.post(`http://127.0.0.1:8000/api/listings/create/`, { slug : createSlug(formData.adress) ,title, 
+        axios.post(`http://127.0.0.1:8000/api/listings/create/`, JSON.stringify({ slug :createSlug(formData.adress) ,title, 
         adress, 
         city, 
         state,
@@ -138,7 +125,7 @@ function Addlistings() {
         photo_4,
         home_type,
         is_published ,
-        realtor }, config)
+        realtor }), config)
         .then(res => {
             setAlert('Message Sent', 'success');
             setLoading(false);

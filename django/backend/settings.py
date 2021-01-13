@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'accounts',
     'realtors',
     'listings',
-    'contacts'
+    'contacts',
+    'rest_framework_simplejwt.token_blacklist',
 ]
 
 MIDDLEWARE = [

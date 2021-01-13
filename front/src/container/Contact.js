@@ -37,12 +37,12 @@ const Contact = ({ setAlert }) => {
         setLoading(true);
         axios.post(`http://127.0.0.1:8000/api/contacts/`, { name, email, subject, message }, config)
         .then(res => {
-            setAlert('Message Sent', 'success');
+            setAlert('Message envoyer', 'success');
             setLoading(false);
             window.scrollTo(0, 0);
         })
         .catch(err => {
-            setAlert('Error with Sending Message', 'error');
+            setAlert("Erreur lors l'envoie du message", 'error');
             setLoading(false);
             window.scrollTo(0, 0);
         })
@@ -65,12 +65,12 @@ const Contact = ({ setAlert }) => {
                 />
             </Helmet>
             <form className='contact__form' onSubmit={e => onSubmit(e)}>
-                <label className='contact__form__label' htmlFor='name'>Name*</label>
+                <label className='contact__form__label' htmlFor='name'>Nom complet*</label>
                 <input 
                     className='contact__form__input' 
                     name='name' 
                     type='text' 
-                    placeholder='Full Name' 
+                    placeholder='Nom complet' 
                     onChange={e => onChange(e)} 
                     value={name} 
                     required 
@@ -85,12 +85,12 @@ const Contact = ({ setAlert }) => {
                     value={email} 
                     required 
                 />
-                <label className='contact__form__label' htmlFor='subject'>Subject*</label>
+                <label className='contact__form__label' htmlFor='subject'>Sujet*</label>
                 <input 
                     className='contact__form__input' 
                     name='subject' 
                     type='text' 
-                    placeholder='Buying Home' 
+                    placeholder='Acheter une maison' 
                     onChange={e => onChange(e)} 
                     value={subject} 
                     required 
@@ -114,7 +114,7 @@ const Contact = ({ setAlert }) => {
                             width={50}
                         />
                     </div> :
-                    <button className='contact__form__button' htmltype='submit'>Send</button>
+                    <button className='contact__form__button' htmltype='submit'>envoyer</button>
                 }
             </form>
         </div>

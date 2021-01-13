@@ -23,18 +23,16 @@ export default function(state = initialState,action){
                 isAuthenticated: true,
                 loading : false,
                 token : payload.access
-            };
+            };break;
         
         case SIGNUP_SUCCESS:
             return{
                 ...state,
                 isAuthenticated: false,
                 loading: true
-            }
-        
-        case SIGNUP_FAIL:
-        case LOGIN_FAIL:
+            };break;
         case LOGOUT:
+            localStorage.removeItem('token', payload.access);
             return {
                 ...state,
                 isAuthenticated: false,

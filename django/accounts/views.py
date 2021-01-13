@@ -3,6 +3,7 @@ User = get_user_model()
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import permissions
+from rest_framework_simplejwt.tokens import RefreshToken
 
 class SignupView(APIView):
     permission_classes = [permissions.AllowAny]
@@ -27,3 +28,14 @@ class SignupView(APIView):
                     return Response({'success': 'Votre compte a été creé'})
         else:
             return Response({'error': 'Les mots de passes ne sont pas identique'})
+
+class BlacklistTokenView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request):
+        try:
+            refresh_token = request.data["refresh_token"]
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+        except Exception as e:
+            return Response({'shit'})

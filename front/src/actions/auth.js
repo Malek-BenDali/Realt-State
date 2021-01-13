@@ -7,6 +7,7 @@ import {
     LOGIN_FAIL,
     LOGOUT
 } from './types'
+import { useHistory } from 'react-router-dom';
 
 export const login = (email, password)=> async dispatch =>{
     const config = {
@@ -61,7 +62,27 @@ export const SignUp = ({name, email, password, password2}) => async dispatch=> {
     }
 };
 
-export const logout = () => dispatch => {
-    dispatch(setAlert('Deconnexion', 'success'));
-    dispatch({type : LOGOUT});
+export const logout = ({token}) => async dispatch => {
+    const config = {
+        headers : {
+            'Content-Type' : 'application/json'
+        }
+    }
+
+    const body = JSON.stringify({access_token : token});
+
+    try{
+        const response = await axios.post('http://127.0.0.1:8000/api/accounts/logout/blacklist/', body, config);
+        dispatch({
+            type: LOGOUT,
+            payload : response.data
+        });
+
+        dispatch(setAlert('Deconnexion Reussi', 'success'))
+    }
+    catch(err){
+        dispatch(
+            setAlert('Deconnexion échouer', 'error')
+        );
+    }
 }

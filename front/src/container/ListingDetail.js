@@ -86,14 +86,9 @@ const ListingDetail = (props) => {
                         ) : null
                     }
                 </div>
-            </div>
-        );
-
-        images.push(
-            <div key={2} className='row'>
                 <div className='col-1-of-3'>
                     {
-                        listing.photo_4 ? (
+                        listing.photo_3 ? (
                             <div className='listingdetail__display'>
                                 <img className='listingdetail__display__image' src={listing.photo_4} alt='' />
                             </div>
@@ -102,82 +97,9 @@ const ListingDetail = (props) => {
                 </div>
                 <div className='col-1-of-3'>
                     {
-                        listing.photo_5 ? (
+                        listing.photo_3 ? (
                             <div className='listingdetail__display'>
                                 <img className='listingdetail__display__image' src={listing.photo_5} alt='' />
-                            </div>
-                        ) : null
-                    }
-                </div>
-                <div className='col-1-of-3'>
-                    {
-                        listing.photo_6 ? (
-                            <div className='listingdetail__display'>
-                                <img className='listingdetail__display__image' src={listing.photo_6} alt='' />
-                            </div>
-                        ) : null
-                    }
-                </div>
-            </div>
-        );
-
-        images.push(
-            <div key={3} className='row'>
-                <div className='col-1-of-3'>
-                    {
-                        listing.photo_7 ? (
-                            <div className='listingdetail__display'>
-                                <img className='listingdetail__display__image' src={listing.photo_7} alt='' />
-                            </div>
-                        ) : null
-                    }
-                </div>
-                <div className='col-1-of-3'>
-                    {
-                        listing.photo_8 ? (
-                            <div className='listingdetail__display'>
-                                <img className='listingdetail__display__image' src={listing.photo_8} alt='' />
-                            </div>
-                        ) : null
-                    }
-                </div>
-                <div className='col-1-of-3'>
-                    {
-                        listing.photo_9 ? (
-                            <div className='listingdetail__display'>
-                                <img className='listingdetail__display__image' src={listing.photo_9} alt='' />
-                            </div>
-                        ) : null
-                    }
-                </div>
-            </div>
-        );
-
-        images.push(
-            <div key={4} className='row'>
-                <div className='col-1-of-3'>
-                    {
-                        listing.photo_10 ? (
-                            <div className='listingdetail__display'>
-                                <img className='listingdetail__display__image' src={listing.photo_10} alt='' />
-                            </div>
-                        ) : null
-                    }
-                </div>
-                <div className='col-1-of-3'>
-                    {
-                        listing.photo_12 ? (
-                            <div className='listingdetail__display'>
-                                <img className='listingdetail__display__image' src={listing.photo_11} alt='' />
-                            </div>
-                        ) : null
-                    }
-                </div>
-                <div className='col-1-of-3'>
-                    {
-                        listing.photo_12 ? (
-                            <div className='listingdetail__display'>
-                                <img className='listingdetail__display__image' src={listing.photo_12} alt='' />
                             </div>
                         ) : null
                     }
@@ -229,20 +151,20 @@ const ListingDetail = (props) => {
                     <div className='row'>
                         <div className='col-1-of-2'>
                             <ul className='listingdetail__list'>
-                                <li className='listingdetail__list__item'>Home Type: {listing.home_type}</li>
-                                <li className='listingdetail__list__item'>Price: ${price}</li>
-                                <li className='listingdetail__list__item'>Bedrooms: {listing.bedrooms}</li>
-                                <li className='listingdetail__list__item'>Bathrooms: {listing.bathrooms}</li>
-                                <li className='listingdetail__list__item'>Square Feet: {listing.sqft}</li>
+                                <li className='listingdetail__list__item'>Type de logement: {listing.home_type}</li>
+                                <li className='listingdetail__list__item'>Prix: ${price}</li>
+                                <li className='listingdetail__list__item'>Chambres: {listing.bedrooms}</li>
+                                <li className='listingdetail__list__item'>Toilettes: {listing.bathrooms}</li>
+                                <li className='listingdetail__list__item'>m²: {listing.sqft}</li>
                             </ul>
                         </div>
                         <div className='col-1-of-2'>
                             <ul className='listingdetail__list'>
-                                <li className='listingdetail__list__item'>Sale Type: {listing.sale_type}</li>
-                                <li className='listingdetail__list__item'>Address: {listing.adress}</li>
-                                <li className='listingdetail__list__item'>City: {listing.city}</li>
-                                <li className='listingdetail__list__item'>State: {listing.state}</li>
-                                <li className='listingdetail__list__item'>Zipcode: {listing.zipcode}</li>
+                                <li className='listingdetail__list__item'>Type de vente: {listing.sale_type}</li>
+                                <li className='listingdetail__list__item'>Addresse: {listing.adress}</li>
+                                <li className='listingdetail__list__item'>Ville: {listing.city}</li>
+                                <li className='listingdetail__list__item'>Nation: {listing.state}</li>
+                                <li className='listingdetail__list__item'>Code Postal: {listing.zipcode}</li>
                             </ul>
                         </div>
                     </div>

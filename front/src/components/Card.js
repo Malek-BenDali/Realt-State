@@ -16,17 +16,17 @@ const Card = (props) => {
             <p className='card__location'>{props.address}, {props.city}, {props.state}</p>
             <div className='row'>
                 <div className='col-2-of-3'>
-                    <p className='card__info'>Price: ${numberWithCommas(props.price)}</p>
-                    <p className='card__info'>Bedrooms: {props.bedrooms}</p>
-                    <p className='card__info'>Bathrooms: {props.bathrooms}</p>
+                    <p className='card__info'>Prix: ${numberWithCommas(props.price)}</p>
+                    <p className='card__info'>chambres: {props.bedrooms}</p>
+                    <p className='card__info'>toilette: {props.bathrooms}</p>
                 </div>
                 <div className='col-1-of-3'>
                     <p className='card__saletype'>{props.sale_type}</p>
                     <p className='card__hometype'>{props.home_type}</p>
-                    <p className='card__sqft'>Sqft: {props.sqft}</p>
+                    <p className='card__sqft'>m²: {props.sqft}</p>
                 </div>
             </div>
-            <Link className='card__link' to={`/listings/${props.slug}`}>View Listing</Link>
+            <Link className='card__link' to={`/listings/${props.slug}`}>Voir detail</Link>
         </div>
     );
 };
