@@ -1,8 +1,6 @@
 import {
     SIGNUP_SUCCESS,
-    SIGNUP_FAIL,
     LOGIN_SUCCESS,
-    LOGIN_FAIL,
     LOGOUT
 } from '../actions/types';
 
@@ -18,6 +16,7 @@ export default function(state = initialState,action){
     switch(type){
         case LOGIN_SUCCESS:
             localStorage.setItem('token', payload.access);
+            localStorage.setItem('refresh_token', payload.refresh);
             return{
                 ...state,
                 isAuthenticated: true,
@@ -32,7 +31,8 @@ export default function(state = initialState,action){
                 loading: true
             };break;
         case LOGOUT:
-            localStorage.removeItem('token', payload.access);
+            localStorage.removeItem('token');
+            localStorage.removeItem('refresh_token');
             return {
                 ...state,
                 isAuthenticated: false,

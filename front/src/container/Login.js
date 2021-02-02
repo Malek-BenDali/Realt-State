@@ -23,11 +23,13 @@ function Login({ login, isAuthenticated  }) {
         login(email,password);
     }
 
-    if (isAuthenticated)
+    if ( localStorage.getItem('token'))
         return <Redirect to='/listings'/>
     
 
     return (
+        localStorage.getItem('token')?
+        <Redirect to='/listings'/>:
         <div className='auth' >
             <Helmet>
                 <title> Connexion </title>

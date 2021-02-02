@@ -2,10 +2,9 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
 import Alert from './Alert'
-import { logout } from '../actions/auth'
 import PropTypes from 'prop-types';
 
-function Navbar({auth : {token, loading}, logout }) {
+function Navbar({auth : {token, loading} }) {
     const authLinks = (
         <>
         <Link className='navbar__top__auth__link' to='/logout'>Deconnexion</Link>
@@ -48,7 +47,6 @@ function Navbar({auth : {token, loading}, logout }) {
 }
 
 Navbar.propTypes={
-    logout : PropTypes.func.isRequired,
     auth : PropTypes.object.isRequired
 }
 

@@ -33,9 +33,6 @@ class BlacklistTokenView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request):
-        try:
             refresh_token = request.data["refresh_token"]
             token = RefreshToken(refresh_token)
             token.blacklist()
-        except Exception as e:
-            return Response({'shit'})

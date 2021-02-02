@@ -6,8 +6,8 @@ import { logout } from '../actions/auth';
 import PropTypes from 'prop-types';
 
 function Logout({ logout }) {
-    const token = localStorage.getItem('token');
-    logout(token)
+    const refresh_token = localStorage.getItem('refresh_token');
+    logout(refresh_token)
 
     return (
         <Redirect to='/login'/>
