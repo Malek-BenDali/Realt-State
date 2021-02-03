@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { setAlert } from '../actions/alert';
-import { SignUp } from '../actions/auth';
+import { SignUpp } from '../actions/auth';
 import { PropTypes } from 'prop-types';
 
 function Signup({setAlert, SignUp, isAuthenticated }) {
@@ -101,7 +101,7 @@ function Signup({setAlert, SignUp, isAuthenticated }) {
     )
 }
 
-SignUp.propTypes= {
+SignUpp.propTypes= {
     setAlert : PropTypes.func.isRequired,
     SignUp : PropTypes.func.isRequired ,  
     isAuthenticated : PropTypes.bool
@@ -111,4 +111,4 @@ const mapStateToProps = state=> ({
     isAuthenticcated : state.auth.isAuthenticated
 })
 
-export default  connect(mapStateToProps,{setAlert,SignUp}) (Signup)
+export default  connect(mapStateToProps,{setAlert,SignUpp}) (Signup)

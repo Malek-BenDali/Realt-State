@@ -35,7 +35,7 @@ export const login = (email, password)=> async dispatch =>{
     }
 }
 
-export const SignUp = ({name, email, password, password2}) => async dispatch=> {
+export const SignUpp = ({name, email, password, password2}) => async dispatch=> {
     const config = {
         headers : {
             'Content-Type' : 'application/json'
@@ -49,7 +49,7 @@ export const SignUp = ({name, email, password, password2}) => async dispatch=> {
             type: SIGNUP_SUCCESS,
             payload : response.data
         })
-        dispatch(setAlert('Inscription réussie ', "success"))
+        dispatch(setAlert("Inscription réussi", "success"))
         
     }
     catch(err){

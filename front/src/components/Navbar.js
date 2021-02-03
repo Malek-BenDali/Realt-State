@@ -31,7 +31,7 @@ function Navbar({auth : {token, loading} }) {
                 </div>
                 <div className='navbar__bottom' >
                     <li className='navbar__bottom__item'>
-                        <NavLink className='navbar__bottom__item__link' exact to='/listings'>Liste de logements</NavLink>
+                        <NavLink className='navbar__bottom__item__link' exact to='/listings'>Liste des logements</NavLink>
                     </li>
                     <li className='navbar__bottom__item'>
                         <NavLink className='navbar__bottom__item__link' exact to='/about'>A propos</NavLink>
